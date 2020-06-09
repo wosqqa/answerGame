@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="SucceedPageSkin"  width="750" height="1334" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+	<w:Config id="17292f906ab" ></w:Config>
+	<e:Image source="dzbg@3x_png" x="1.52" y="0"/>
+	<e:Image source="headbg@2x_png" y="0" anchorOffsetY="0" height="134" anchorOffsetX="0" width="750" x="0"/>
+	<e:Image source="egret-answer_json.backbtn@2x" x="27.35" y="28.67" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"/>
+	<e:Image source="topbg@2x_png" x="207.33" y="28.67" anchorOffsetX="0" width="335.32" anchorOffsetY="0" height="72.67"/>
+	<e:Image source="egret-answer_json.btnsj@2x" x="551.98" y="37.66" anchorOffsetX="0" width="74" anchorOffsetY="0" height="46.66"/>
+	<e:Image source="jgbg@2x_png" x="1.52" y="724" scaleX="0.5" scaleY="0.5"/>
+	<e:Image source="egret-answer_json.back@2x" x="170.98" y="1156" scaleX="0.5" scaleY="0.5"/>
+	<e:Image source="egret-answer_json.gzcg@2x" x="499.98" y="514" scaleX="0.5" scaleY="0.5"/>
+</e:Skin>

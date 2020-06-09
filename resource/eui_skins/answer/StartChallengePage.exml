@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="StartChallengePageSkin" width="750" height="1334" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+	<w:Config id="17292cb56ce" ></w:Config>
+	<e:Image id="topBg" source="dzbg@3x_png" x="1.52" y="0"/>
+	<e:Image source="headbg@2x_png" y="0" anchorOffsetY="0" height="134" anchorOffsetX="0" width="750" x="0"/>
+	<e:Image source="egret-answer_json.backbtn@2x" x="27.35" y="28.67" anchorOffsetX="0" width="70" anchorOffsetY="0" height="70"/>
+	<e:Image source="topbg@2x_png" x="207.33" y="28.67" anchorOffsetX="0" width="335.32" anchorOffsetY="0" height="72.67"/>
+	<e:Image source="egret-answer_json.btnsj@2x" x="551.98" y="37.66" anchorOffsetX="0" width="74" anchorOffsetY="0" height="46.66"/>
+	<e:Image source="abg@2x_png" x="413.31" y="594.15" scaleX="0.5" scaleY="0.5"/>
+	<e:Image source="allbg@2x_png" x="-0.01" y="849" scaleX="0.5" scaleY="0.5"/>
+	<e:Image source="tdbg@2x_png" x="-0.01" y="612.33" scaleX="0.5" scaleY="0.5"/>
+	<e:Image id="startBtn" source="egret-answer_json.jsbtn@2x" y="1145.52" scaleX="0.5" scaleY="0.5" x="42.52" visible="false"/>
+	<e:Image id="stopBtn" source="egret-answer_json.jsdbtn@2x" y="1145.52" scaleX="0.5" scaleY="0.5" x="42.52" visible="false"/>
+	<e:Label id="sightsTitle" text="荆州古城区 土地公" x="470" y="620.08" size="23"/>
+	<e:Label text="老夫猜，你对此地的了解，远远不如老夫" x="436" y="686" anchorOffsetX="0" width="256.66" anchorOffsetY="0" height="63.33" size="24" textColor="0x6a3002" lineSpacing="14"/>
+	<e:Label text="有没有信心接受老夫的答题挑战呢？" x="433.84" y="777.64" textColor="0xff4d0e" anchorOffsetX="0" width="263.33" anchorOffsetY="0" height="82" size="24" lineSpacing="14" bold="true"/>
+	<e:Rect width="284" height="178" x="420.81" y="938.24" anchorOffsetX="0" anchorOffsetY="0" fillColor="0xffe6bd" strokeColor="0xfff6e5" fillAlpha="0.98" ellipseWidth="17"/>
+	<e:Image source="egret-answer_json.jli@2x" x="485.69" y="909.11" scaleX="0.5" scaleY="0.5"/>
+	<e:Image source="egret-answer_json.bjxx@2x" x="576.82" y="977.24" scaleX="0.5" scaleY="0.5"/>
+	<e:Image source="egret-answer_json.cgdtbg@2x" x="451.98" y="977.24" scaleX="0.5" scaleY="0.5"/>
+</e:Skin>

@@ -1,0 +1,19 @@
+{
+    "global": {
+        "globalBindingDataTestObj": []
+    },
+    "17292f906ab": {
+        "bindingDataTestObj": []
+    },
+    "1729305ee6c": {
+        "path": "..\\resource\\eui_skins\\answer\\AnsweringPage.ts",
+        "class": "AnsweringPage",
+        "parentPath": "",
+        "bindingDataTestObj": []
+    },
+    "172934c7ba8": {
+        "path": "..\\resource\\eui_skins\\answer\\PopupsPage.ts",
+        "class": "PopupsPage",
+        "parentPath": ""
+    }
+}
