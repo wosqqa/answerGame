@@ -22,5 +22,5 @@ var PopupsPage = (function (_super) {
         _super.prototype.childrenCreated.call(this);
     };
     return PopupsPage;
-}(eui.Component));
-__reflect(PopupsPage.prototype, "PopupsPage", ["eui.UIComponent", "egret.DisplayObject"]);
+}(BaseScene));
+__reflect(PopupsPage.prototype, "PopupsPage");

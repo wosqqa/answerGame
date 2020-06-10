@@ -19,33 +19,35 @@ var StartChallengePage = (function (_super) {
         _super.prototype.partAdded.call(this, partName, instance);
     };
     StartChallengePage.prototype.childrenCreated = function () {
-        var _this = this;
         _super.prototype.childrenCreated.call(this);
-        console.log('渲染挑战', AnswerData.index.data.is_finished);
+        var that = this;
         var startData = AnswerData.index.data;
-        this.sightsTitle.text = startData.level_name + ' 土地公';
-        // this.topBg.source = startData.ticket.image;
-        /**获取头像图片 */
-        var imgLoader = new egret.ImageLoader();
-        egret.ImageLoader.crossOrigin = "anonymous";
-        imgLoader.load(startData.ticket.image);
-        imgLoader.once(egret.Event.COMPLETE, function (e) {
-            var texture = new egret.Texture();
-            texture.bitmapData = e.currentTarget.data;
-            _this.topBg.texture = texture;
-        }, this);
-        if (startData.is_finished == 1) {
-            this.startBtn.visible = true;
-        }
-        else {
-            this.stopBtn.visible = true;
-        }
-        this.startBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
-            console.log('点击挑战');
-            SceneManager.removeScene('startChallengePage');
-            SceneManager.addScene('answeringPage');
-        }, this);
+        setTimeout(function () {
+            that['sightsTitle'].text = startData.level_name + ' 土地公';
+            // that['topBg'].source = startData.ticket.image;
+            console.log('图片URL>>图片地址不支持跨域', that['topBg'].texture);
+            ResUtil.loadCrossImageByUrl({ url: 'https://tpc.googlesyndication.com/simgad/4039498861058963312?sqp=4sqPyQQ7QjkqNxABHQAAtEIgASgBMAk4A0DwkwlYAWBfcAKAAQGIAQGdAQAAgD-oAQGwAYCt4gS4AV_FAS2ynT4&rs=AOga4qkD8UQsD5MPPN2NqlMzeYr_hqgvOg' }, function (res) {
+                console.log('网络图片', res);
+                that['topBg'].texture = res.texture;
+            });
+            console.log('21渲染挑战', that['topBg']);
+            if (startData.is_finished == 0) {
+                that['startBtn'].visible = true;
+            }
+            else {
+                that['startBtn'].visible = true;
+            }
+            GameUtil.tap(that['startBtn'], function () {
+                that.toast('点击');
+                Router.to({
+                    name: 'answering'
+                });
+            }, that);
+            GameUtil.tap(that['stopBtn'], function () {
+                that.toast('按钮不可点击');
+            }, that);
+        }, 150);
     };
     return StartChallengePage;
-}(eui.Component));
-__reflect(StartChallengePage.prototype, "StartChallengePage", ["eui.UIComponent", "egret.DisplayObject"]);
+}(BaseScene));
+__reflect(StartChallengePage.prototype, "StartChallengePage");

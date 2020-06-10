@@ -22,5 +22,5 @@ var AnsweringPage = (function (_super) {
         _super.prototype.childrenCreated.call(this);
     };
     return AnsweringPage;
-}(eui.Component));
-__reflect(AnsweringPage.prototype, "AnsweringPage", ["eui.UIComponent", "egret.DisplayObject"]);
+}(BaseScene));
+__reflect(AnsweringPage.prototype, "AnsweringPage");

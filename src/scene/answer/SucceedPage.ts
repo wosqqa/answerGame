@@ -1,4 +1,4 @@
-class SucceedPage extends eui.Component implements  eui.UIComponent {
+class SucceedPage  extends BaseScene{
 	public constructor() {
 		super();
 		this.skinName = "resource/eui_skins/answer/SucceedPage.exml";

@@ -1,4 +1,4 @@
-class AnsweringPage extends eui.Component implements  eui.UIComponent {
+class AnsweringPage extends BaseScene {
 	public constructor() {
 		super();
 		this.skinName = "resource/eui_skins/answer/AnsweringPage.exml";

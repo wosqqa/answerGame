@@ -87,8 +87,7 @@ var Main = (function (_super) {
         egret.lifecycle.onResume = function () {
             egret.ticker.resume();
         };
-        //inject the custom material parser
-        //注入自定义的素材解析器
+        //注入自定义的素材解析器 使用eui和exml功能
         var assetAdapter = new AssetAdapter();
         egret.registerImplementation("eui.IAssetAdapter", assetAdapter);
         egret.registerImplementation("eui.IThemeAdapter", new ThemeAdapter());
@@ -98,115 +97,43 @@ var Main = (function (_super) {
     };
     Main.prototype.runGame = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var result, userInfo;
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.loadResource()];
-                    case 1:
-                        _a.sent();
-                        this.createGameScene();
-                        return [4 /*yield*/, RES.getResAsync("description_json")];
-                    case 2:
-                        result = _a.sent();
-                        this.startAnimation(result);
-                        return [4 /*yield*/, platform.login()];
-                    case 3:
-                        _a.sent();
-                        return [4 /*yield*/, platform.getUserInfo()];
-                    case 4:
-                        userInfo = _a.sent();
-                        console.log(userInfo);
-                        return [2 /*return*/];
-                }
+                GameUtil.setMainStage(this); //先设置主场景
+                Router.init(this)
+                    .setLeaveAnimation(new SelfAnimation().add({ alpha: 0 }, 300)) // 设置页面离开动画
+                    .setEnterAnimation(new SelfAnimation().init({ alpha: 0 }).add({ alpha: 1 }, 300)) // 设置页面进入动画
+                    .register('loading', LoadingScene) // 注册默认路由
+                    .register('game', StartChallengePage) // 注册游戏场景路由
+                    .register('answering', AnsweringPage) // 注册游戏场景路由
+                    .to({
+                    name: 'loading'
+                });
+                return [2 /*return*/];
             });
         });
     };
-    Main.prototype.loadResource = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var loadingView, e_1;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        _a.trys.push([0, 4, , 5]);
-                        loadingView = new LoadingUI();
-                        this.stage.addChild(loadingView);
-                        return [4 /*yield*/, RES.loadConfig("resource/default.res.json", "resource/")];
-                    case 1:
-                        _a.sent();
-                        return [4 /*yield*/, this.loadTheme()];
-                    case 2:
-                        _a.sent();
-                        return [4 /*yield*/, RES.loadGroup("preload", 0, loadingView)];
-                    case 3:
-                        _a.sent();
-                        this.stage.removeChild(loadingView);
-                        return [3 /*break*/, 5];
-                    case 4:
-                        e_1 = _a.sent();
-                        console.error(e_1);
-                        return [3 /*break*/, 5];
-                    case 5: return [2 /*return*/];
-                }
-            });
-        });
-    };
+    // private async loadResource() {
+    //     try {
+    //         const loadingView = new LoadingUI();
+    //         this.stage.addChild(loadingView);
+    //         await RES.loadConfig("resource/default.res.json", "resource/");
+    //         await this.loadTheme();
+    //         await RES.loadGroup("preload", 0, loadingView);
+    //         this.stage.removeChild(loadingView);
+    //     }
+    //     catch (e) {
+    //         console.error(e);
+    //     }
+    // }
     Main.prototype.loadTheme = function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            // load skin theme configuration file, you can manually modify the file. And replace the default skin.
             //加载皮肤主题配置文件,可以手动修改这个文件。替换默认皮肤。
             var theme = new eui.Theme("resource/default.thm.json", _this.stage);
             theme.addEventListener(eui.UIEvent.COMPLETE, function () {
                 resolve();
             }, _this);
         });
-    };
-    /**
-     * 创建场景界面
-     * Create scene interface
-     */
-    Main.prototype.createGameScene = function () {
-        // 将main创建的容器 作为 根容器场景
-        SceneManager.instance.setScene(this);
-        // 跳转至开始场景
-        SceneManager.toStartScene();
-    };
-    /**
-     * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。
-     * Create a Bitmap object according to name keyword.As for the property of name please refer to the configuration file of resources/resource.json.
-     */
-    Main.prototype.createBitmapByName = function (name) {
-        var result = new egret.Bitmap();
-        var texture = RES.getRes(name);
-        result.texture = texture;
-        return result;
-    };
-    /**
-     * 描述文件加载成功，开始播放动画
-     * Description file loading is successful, start to play the animation
-     */
-    Main.prototype.startAnimation = function (result) {
-        var _this = this;
-        var parser = new egret.HtmlTextParser();
-        var textflowArr = result.map(function (text) { return parser.parse(text); });
-        var textfield = this.textfield;
-        var count = -1;
-        var change = function () {
-            count++;
-            if (count >= textflowArr.length) {
-                count = 0;
-            }
-            var textFlow = textflowArr[count];
-            // 切换描述内容
-            // Switch to described content
-            textfield.textFlow = textFlow;
-            var tw = egret.Tween.get(textfield);
-            tw.to({ "alpha": 1 }, 200);
-            tw.wait(2000);
-            tw.to({ "alpha": 0 }, 200);
-            tw.call(change, _this);
-        };
-        change();
     };
     return Main;
 }(eui.UILayer));

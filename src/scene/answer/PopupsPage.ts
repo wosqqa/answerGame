@@ -1,4 +1,4 @@
-class PopupsPage extends eui.Component implements  eui.UIComponent {
+class PopupsPage  extends BaseScene {
 	public constructor() {
 		super();
 		this.skinName = "resource/eui_skins/answer/PopupsPage.exml";

@@ -22,5 +22,5 @@ var SucceedPage = (function (_super) {
         _super.prototype.childrenCreated.call(this);
     };
     return SucceedPage;
-}(eui.Component));
-__reflect(SucceedPage.prototype, "SucceedPage", ["eui.UIComponent", "egret.DisplayObject"]);
+}(BaseScene));
+__reflect(SucceedPage.prototype, "SucceedPage");

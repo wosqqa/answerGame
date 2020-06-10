@@ -1,8 +1,12 @@
 {
 	"groups": [
 		{
-			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg_jpg,egret_icon_png,description_json,dzbg@3x_png,allbg@2x_png,gmbg@2x_png,topjdbg@2x_png,topbg@2x_png,abg@2x_png,dtdabg@2x_png,loading_gif,headbg@2x_png,jgbg@2x_png,bg02_jpg,box1@2x_png,tdbg@2x_png,success_mp3,bg_mp3,click_mp3,error_mp3,egret-answer_json",
+			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg_jpg,egret_icon_png,description_json",
 			"name": "preload"
+		},
+		{
+			"keys": "abg@2x_png,allbg@2x_png,bg_mp3,click_mp3,dzbg@3x_png,egret-answer_json,error_mp3,gmbg@2x_png,headbg@2x_png,jgbg@2x_png,success_mp3,topbg@2x_png,tdbg@2x_png",
+			"name": "main"
 		}
 	],
 	"resources": [
@@ -137,9 +141,9 @@
 			"name": "description_json"
 		},
 		{
-			"url": "assets/Answer/dzbg@3x.png",
+			"url": "assets/Answer/abg@2x.png",
 			"type": "image",
-			"name": "dzbg@3x_png"
+			"name": "abg@2x_png"
 		},
 		{
 			"url": "assets/Answer/allbg@2x.png",
@@ -147,44 +151,9 @@
 			"name": "allbg@2x_png"
 		},
 		{
-			"url": "assets/Answer/gmbg@2x.png",
-			"type": "image",
-			"name": "gmbg@2x_png"
-		},
-		{
-			"url": "assets/Answer/topjdbg@2x.png",
-			"type": "image",
-			"name": "topjdbg@2x_png"
-		},
-		{
-			"url": "assets/Answer/topbg@2x.png",
-			"type": "image",
-			"name": "topbg@2x_png"
-		},
-		{
-			"url": "assets/Answer/abg@2x.png",
-			"type": "image",
-			"name": "abg@2x_png"
-		},
-		{
-			"url": "assets/Answer/dtdabg@2x.png",
-			"type": "image",
-			"name": "dtdabg@2x_png"
-		},
-		{
-			"url": "assets/Answer/loading.gif",
-			"type": "image",
-			"name": "loading_gif"
-		},
-		{
-			"url": "assets/Answer/headbg@2x.png",
-			"type": "image",
-			"name": "headbg@2x_png"
-		},
-		{
-			"url": "assets/Answer/jgbg@2x.png",
-			"type": "image",
-			"name": "jgbg@2x_png"
+			"url": "assets/Answer/bg.mp3",
+			"type": "sound",
+			"name": "bg_mp3"
 		},
 		{
 			"url": "assets/Answer/bg02.jpg",
@@ -197,24 +166,20 @@
 			"name": "box1@2x_png"
 		},
 		{
-			"url": "assets/Answer/tdbg@2x.png",
-			"type": "image",
-			"name": "tdbg@2x_png"
-		},
-		{
-			"url": "assets/Answer/success.mp3",
-			"type": "sound",
-			"name": "success_mp3"
-		},
-		{
-			"url": "assets/Answer/bg.mp3",
-			"type": "sound",
-			"name": "bg_mp3"
-		},
-		{
 			"url": "assets/Answer/click.mp3",
 			"type": "sound",
 			"name": "click_mp3"
+		},
+		{
+			"url": "assets/Answer/dzbg@3x.png",
+			"type": "image",
+			"name": "dzbg@3x_png"
+		},
+		{
+			"url": "assets/Answer/egret-answer.json",
+			"type": "sheet",
+			"name": "egret-answer_json",
+			"subkeys": "back@2x,backbtn@2x,bjxx@2x,btnl@2x,btnsj@2x,btny@2x,cgdlbg@2x,cgdtbg@2x,cuole@2x,dialogclose@2x,dqbg@2x,dqjd@2x,dtbg@2x,duile@2x,fanb@2x,guizet@2x,gzcg@2x,gzhang@2x,icon_walk-192@2x,jbbg@2x,jdxx@2x,jli@2x,jligl@2x,jsbg@2x,jsbtn@2x,jsdbtn@2x,liekaixx@2x,loading,nameb@3x,nametop@3x,namez@3x,nectTips@2x,sbbg@2x,sbdtbg@2x,spgg@2x,tips@2x,topbg@2x,wen@2x"
 		},
 		{
 			"url": "assets/Answer/error.mp3",
@@ -222,10 +187,34 @@
 			"name": "error_mp3"
 		},
 		{
-			"url": "assets/Answer/egret-answer.json",
-			"type": "sheet",
-			"name": "egret-answer_json",
-			"subkeys": "back@2x,backbtn@2x,bjxx@2x,btnl@2x,btnsj@2x,btny@2x,cgdlbg@2x,cgdtbg@2x,cuole@2x,dialogclose@2x,dqbg@2x,dqjd@2x,dtbg@2x,duile@2x,fanb@2x,guizet@2x,gzcg@2x,gzhang@2x,icon_walk-192@2x,jbbg@2x,jdxx@2x,jli@2x,jligl@2x,jsbg@2x,jsbtn@2x,jsdbtn@2x,liekaixx@2x,loading,nameb@3x,nametop@3x,namez@3x,nectTips@2x,sbbg@2x,sbdtbg@2x,spgg@2x,tips@2x,topbg@2x,wen@2x"
+			"url": "assets/Answer/gmbg@2x.png",
+			"type": "image",
+			"name": "gmbg@2x_png"
+		},
+		{
+			"url": "assets/Answer/headbg@2x.png",
+			"type": "image",
+			"name": "headbg@2x_png"
+		},
+		{
+			"url": "assets/Answer/jgbg@2x.png",
+			"type": "image",
+			"name": "jgbg@2x_png"
+		},
+		{
+			"url": "assets/Answer/success.mp3",
+			"type": "sound",
+			"name": "success_mp3"
+		},
+		{
+			"url": "assets/Answer/topbg@2x.png",
+			"type": "image",
+			"name": "topbg@2x_png"
+		},
+		{
+			"url": "assets/Answer/tdbg@2x.png",
+			"type": "image",
+			"name": "tdbg@2x_png"
 		}
 	]
 }

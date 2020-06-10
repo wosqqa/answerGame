@@ -37,112 +37,110 @@ class Main extends eui.UILayer {
             // custom lifecycle plugin
         })
 
-        egret.lifecycle.onPause = () => {
+        egret.lifecycle.onPause = () => { //进入后台
             egret.ticker.pause();
         }
 
-        egret.lifecycle.onResume = () => {
+        egret.lifecycle.onResume = () => { //进入前台
             egret.ticker.resume();
         }
 
-        //inject the custom material parser
-        //注入自定义的素材解析器
+        //注入自定义的素材解析器 使用eui和exml功能
         let assetAdapter = new AssetAdapter();
         egret.registerImplementation("eui.IAssetAdapter", assetAdapter);
         egret.registerImplementation("eui.IThemeAdapter", new ThemeAdapter());
-
-
         this.runGame().catch(e => {
             console.log(e);
         })
     }
 
     private async runGame() {
-        await this.loadResource()
-        this.createGameScene();
-        const result = await RES.getResAsync("description_json")
-        this.startAnimation(result);
-        await platform.login();
-        const userInfo = await platform.getUserInfo();
-        console.log(userInfo);
+        GameUtil.setMainStage(this);//先设置主场景
+        Router.init(this)
+            .setLeaveAnimation(new SelfAnimation().add({alpha: 0}, 300))// 设置页面离开动画
+            .setEnterAnimation(new SelfAnimation().init({alpha: 0}).add({alpha: 1}, 300)) // 设置页面进入动画
+            .register('loading', LoadingScene) // 注册默认路由
+            .register('game', StartChallengePage) // 注册游戏场景路由
+            .register('answering', AnsweringPage) // 注册游戏场景路由
+            .to({ // 跳转到默认页面
+                name: 'loading'
+            })
 
     }
 
-    private async loadResource() {
-        try {
-            const loadingView = new LoadingUI();
-            this.stage.addChild(loadingView);
-            await RES.loadConfig("resource/default.res.json", "resource/");
-            await this.loadTheme();
-            await RES.loadGroup("preload", 0, loadingView);
-            this.stage.removeChild(loadingView);
-        }
-        catch (e) {
-            console.error(e);
-        }
-    }
+    // private async loadResource() {
+    //     try {
+    //         const loadingView = new LoadingUI();
+    //         this.stage.addChild(loadingView);
+    //         await RES.loadConfig("resource/default.res.json", "resource/");
+    //         await this.loadTheme();
+    //         await RES.loadGroup("preload", 0, loadingView);
+    //         this.stage.removeChild(loadingView);
+    //     }
+    //     catch (e) {
+    //         console.error(e);
+    //     }
+    // }
 
     private loadTheme() {
         return new Promise((resolve, reject) => {
-            // load skin theme configuration file, you can manually modify the file. And replace the default skin.
             //加载皮肤主题配置文件,可以手动修改这个文件。替换默认皮肤。
             let theme = new eui.Theme("resource/default.thm.json", this.stage);
             theme.addEventListener(eui.UIEvent.COMPLETE, () => {
                 resolve();
             }, this);
-
         })
     }
 
-    private textfield: egret.TextField;
+    // private textfield: egret.TextField;
     /**
      * 创建场景界面
      * Create scene interface
      */
-    protected createGameScene(): void {
-        // 将main创建的容器 作为 根容器场景
-        SceneManager.instance.setScene(this);
-        // 跳转至开始场景
-        SceneManager.toStartScene();
-    }
+    // protected createGameScene(): void {
+    //     // 将main创建的容器 作为 根容器场景
+    //     SceneManager.instance.setScene(this);
+    //     // 跳转至开始场景
+    //     SceneManager.toStartScene();
+    // }
     /**
      * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。
      * Create a Bitmap object according to name keyword.As for the property of name please refer to the configuration file of resources/resource.json.
      */
-    private createBitmapByName(name: string): egret.Bitmap {
-        let result = new egret.Bitmap();
-        let texture: egret.Texture = RES.getRes(name);
-        result.texture = texture;
-        return result;
-    }
+    // private createBitmapByName(name: string): egret.Bitmap {
+    //     let result = new egret.Bitmap();
+    //     let texture: egret.Texture = RES.getRes(name);
+    //     result.texture = texture;
+    //     return result;
+    // }
     /**
      * 描述文件加载成功，开始播放动画
      * Description file loading is successful, start to play the animation
      */
-    private startAnimation(result: Array<any>): void {
-        let parser = new egret.HtmlTextParser();
+    // private startAnimation(result: Array<any>): void {
+    //     let parser = new egret.HtmlTextParser();
 
-        let textflowArr = result.map(text => parser.parse(text));
-        let textfield = this.textfield;
-        let count = -1;
-        let change = () => {
-            count++;
-            if (count >= textflowArr.length) {
-                count = 0;
-            }
-            let textFlow = textflowArr[count];
+    //     let textflowArr = result.map(text => parser.parse(text));
+    //     let textfield = this.textfield;
+    //     let count = -1;
+    //     let change = () => {
+    //         count++;
+    //         if (count >= textflowArr.length) {
+    //             count = 0;
+    //         }
+    //         let textFlow = textflowArr[count];
 
-            // 切换描述内容
-            // Switch to described content
-            textfield.textFlow = textFlow;
-            let tw = egret.Tween.get(textfield);
-            tw.to({ "alpha": 1 }, 200);
-            tw.wait(2000);
-            tw.to({ "alpha": 0 }, 200);
-            tw.call(change, this);
-        };
+    //         // 切换描述内容
+    //         // Switch to described content
+    //         textfield.textFlow = textFlow;
+    //         let tw = egret.Tween.get(textfield);
+    //         tw.to({ "alpha": 1 }, 200);
+    //         tw.wait(2000);
+    //         tw.to({ "alpha": 0 }, 200);
+    //         tw.call(change, this);
+    //     };
 
-        change();
-    }
+    //     change();
+    // }
 
 }

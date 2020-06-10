@@ -1,8 +1,5 @@
-class StartChallengePage extends eui.Component implements  eui.UIComponent {
-	public startBtn:eui.Image;
-	public stopBtn:eui.Image;
-	public sightsTitle:eui.Label;
-	public topBg:eui.Image;
+class StartChallengePage  extends BaseScene {
+	
 	public constructor() {
 		super();
 		this.skinName = "resource/eui_skins/answer/StartChallengePage.exml";
@@ -17,30 +14,31 @@ class StartChallengePage extends eui.Component implements  eui.UIComponent {
 	protected childrenCreated():void
 	{
 		super.childrenCreated();
-		console.log('渲染挑战',AnswerData.index.data.is_finished);
+		let that = this;
 		let startData = AnswerData.index.data;
-		this.sightsTitle.text = startData.level_name + ' 土地公';
-		// this.topBg.source = startData.ticket.image;
-		/**获取头像图片 */
-		let imgLoader: egret.ImageLoader = new egret.ImageLoader();
-		egret.ImageLoader.crossOrigin = "anonymous";
-		imgLoader.load(startData.ticket.image);
-		imgLoader.once(egret.Event.COMPLETE, (e: egret.Event) => {
-			let texture = new egret.Texture();
-			texture.bitmapData = e.currentTarget.data;
-			this.topBg.texture = texture;
-		}, this);
-		
-		if(startData.is_finished==1){
-			this.startBtn.visible = true
-		}else{
-			this.stopBtn.visible = true
-		}
-		this.startBtn.addEventListener(egret.TouchEvent.TOUCH_TAP,function(){
-			console.log('点击挑战')
-			SceneManager.removeScene('startChallengePage');
-			SceneManager.addScene('answeringPage');
-		},this)
+		setTimeout(function() {
+			that['sightsTitle'].text = startData.level_name + ' 土地公';
+			// that['topBg'].source = startData.ticket.image;
+			console.log('图片URL>>图片地址不支持跨域', that['topBg'].texture);
+			ResUtil.loadCrossImageByUrl({url:'https://tpc.googlesyndication.com/simgad/4039498861058963312?sqp=4sqPyQQ7QjkqNxABHQAAtEIgASgBMAk4A0DwkwlYAWBfcAKAAQGIAQGdAQAAgD-oAQGwAYCt4gS4AV_FAS2ynT4&rs=AOga4qkD8UQsD5MPPN2NqlMzeYr_hqgvOg'},(res)=> {
+				console.log('网络图片', res);
+				that['topBg'].texture = res.texture;
+			})
+			console.log('21渲染挑战', that['topBg']);
+			if(startData.is_finished==0){//条件判断按钮的显示
+				that['startBtn'].visible = true
+			}else{
+				that['startBtn'].visible = true
+			}
+			GameUtil.tap(that['startBtn'], ()=> {
+				that.toast('点击')
+				Router.to({ // 跳转到默认页面
+					name: 'answering'
+				})
+			}, that)
+			GameUtil.tap(that['stopBtn'], ()=> {
+				that.toast('按钮不可点击')
+			}, that)
+		}, 150);
 	}
-	
 }

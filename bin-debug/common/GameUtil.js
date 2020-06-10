@@ -7,28 +7,51 @@ var __reflect = (this && this.__reflect) || function (p, c, t) {
 var GameUtil = (function () {
     function GameUtil() {
     }
+    GameUtil.setMainStage = function (main) {
+        this.mainStage = main.stage;
+    };
+    GameUtil.getTopStage = function () {
+        return this.mainStage;
+    };
     /**
      * 获取舞台高度
      */
     GameUtil.getStageHeight = function () {
-        return SceneManager.instance._stage.height;
+        return this.mainStage.stageHeight;
     };
     /*
      * 获取舞台宽度
      */
     GameUtil.getStageWidth = function () {
-        return SceneManager.instance._stage.width;
+        return this.mainStage.stageWidth;
     };
-    /**
-     * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。
-     */
-    GameUtil.createBitmapByName = function (name, type) {
-        if (type === void 0) { type = 'png'; }
-        var result = new egret.Bitmap();
-        var texture = RES.getRes(name + '_' + type);
-        result.texture = texture;
-        return result;
+    // 是容器可点击
+    GameUtil.tap = function (bitmap, callback, thisObject) {
+        bitmap.touchEnabled = true;
+        bitmap.addEventListener(egret.TouchEvent.TOUCH_TAP, callback, thisObject);
     };
+    // 创建圆角矩形
+    GameUtil.drawRoundRect = function (shape, color, width, height, round, rArr) {
+        shape.graphics.clear();
+        shape.graphics.beginFill(color, 1);
+        shape.graphics.drawRoundRect(0, 0, width, height, round, round);
+        shape.graphics.endFill();
+        var roundArr = [0, 1, 2, 3].filter(function (item) { return rArr.indexOf(item) === -1; });
+        var rectData = [
+            [0, 0],
+            [1, 0],
+            [0, 1],
+            [1, 1]
+        ];
+        for (var i = 0; i < roundArr.length; ++i) {
+            var x = (width - round) * rectData[roundArr[i]][0];
+            var y = (height - round) * rectData[roundArr[i]][1];
+            shape.graphics.beginFill(color, 1);
+            shape.graphics.drawRect(x, y, round, round);
+            shape.graphics.endFill();
+        }
+    };
+    GameUtil.isIos = /iphone|ipad|ipod/.test(navigator.userAgent.toLowerCase());
     return GameUtil;
 }());
 __reflect(GameUtil.prototype, "GameUtil");
