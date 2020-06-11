@@ -74,11 +74,26 @@ class LoadingScene extends BaseScene {
             diff = diff < 1000 ? (1000 - diff) : 300
             setTimeout(()=> {
                 // 加载完成跳转到游戏页面
+                //先循环把注册的路由new实例以便在childrenCreated方法中可以直接id操作 绑定事件等 
+                SceneManager.instance.setScene(GameUtil.mainStage)
+                // for (let item in Router.routeMap.list) {
+                //     console.log('所有路由',item);
+                //     new Router.routeMap.list[item].className();
+                // }
+                this.loadTheme();
                 Router.to({name: 'game'})
             }, this, diff)
         }
     }
-
+    private loadTheme() {
+        return new Promise((resolve, reject) => {
+            //加载皮肤主题配置文件,可以手动修改这个文件。替换默认皮肤。
+            let theme = new eui.Theme("resource/default.thm.json", this.stage);
+            theme.addEventListener(eui.UIEvent.COMPLETE, () => {
+                resolve();
+            }, this);
+        })
+    }
     private drawBg() {
         let bg: egret.Shape = new egret.Shape();
         bg.graphics.beginFill(0x56A1D2);

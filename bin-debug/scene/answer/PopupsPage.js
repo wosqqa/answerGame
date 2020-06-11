@@ -20,6 +20,11 @@ var PopupsPage = (function (_super) {
     };
     PopupsPage.prototype.childrenCreated = function () {
         _super.prototype.childrenCreated.call(this);
+        var that = this;
+        console.log('有值', that['close']);
+        GameUtil.tap(that['close'], function () {
+            SceneManager.removeScene('popupsPage');
+        }, that);
     };
     return PopupsPage;
 }(BaseScene));

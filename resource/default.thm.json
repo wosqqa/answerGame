@@ -16,10 +16,18 @@
 		"StartChallengePage": "resource/eui_skins/answer/StartChallengePage.exml",
 		"SucceedPage": "resource/eui_skins/answer/SucceedPage.exml",
 		"AnsweringPage": "resource/eui_skins/answer/AnsweringPage.exml",
-		"PopupsPage": "resource/eui_skins/answer/PopupsPage.exml"
+		"PopupsPage": "resource/eui_skins/answer/PopupsPage.exml",
+		"KeyButtonSkin": "resource/eui_skins/answer/item/KeyButtonSkin.exml",
+		"CorrectButtonSkin": "resource/eui_skins/answer/item/CorrectButtonSkin.exml",
+		"WrongButtonSkin": "resource/eui_skins/answer/item/WrongButtonSkin.exml",
+		"QuestionItemRenderer": "resource/eui_skins/answer/item/QuestionItemRenderer.exml"
 	},
 	"autoGenerateExmlsList": true,
 	"exmls": [
+		"resource/eui_skins/answer/item/QuestionItemRenderer.exml",
+		"resource/eui_skins/answer/item/KeyButtonSkin.exml",
+		"resource/eui_skins/answer/item/CorrectButtonSkin.exml",
+		"resource/eui_skins/answer/item/WrongButtonSkin.exml",
 		"resource/eui_skins/answer/AnsweringPage.exml",
 		"resource/eui_skins/answer/PopupsPage.exml",
 		"resource/eui_skins/answer/StartChallengePage.exml",

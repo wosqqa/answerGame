@@ -65,7 +65,6 @@ class Main extends eui.UILayer {
             .to({ // 跳转到默认页面
                 name: 'loading'
             })
-
     }
 
     // private async loadResource() {

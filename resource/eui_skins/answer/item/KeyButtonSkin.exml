@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="KeyButtonSkinSkin" width="625" height="105" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+	<w:Config id="172a23c31ec" ></w:Config>
+	<e:Rect left="0" right="0" top="0" bottom="0" fillColor="0xffffff" strokeColor="0xff7f00" strokeWeight="1" ellipseHeight="125" ellipseWidth="125"/>
+	<e:Label id="keyTxt" text="答案一答案一" textColor="0xFF7F00" size="36" bold="true" textAlign="center" rotation="0.7" anchorOffsetX="0" anchorOffsetY="0" verticalAlign="middle" width="625" height="105" x="0" y="0"/>
+</e:Skin>

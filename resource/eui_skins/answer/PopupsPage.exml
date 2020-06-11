@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="PopupsPageSkin" width="750" height="1134" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
 	<w:Config id="172934c7ba8" ></w:Config>
-	<e:Rect width="750" height="1134" x="0" y="0" fillAlpha="0.8"/>
+	<e:Rect fillAlpha="0.8" left="0" right="0" top="0" bottom="0"/>
 	<e:Rect width="520" height="420" x="37" fillColor="0xffe3b2" ellipseWidth="40" verticalCenter="0" y="-210" scaleX="1" scaleY="1" visible="false"/>
 	<e:Image source="gmbg@2x_png" x="51" y="-503" scaleX="0.5" scaleY="0.5"/>
 	<e:Group width="520" anchorOffsetX="0" anchorOffsetY="0" verticalCenter="0" horizontalCenter="0">
@@ -9,7 +9,7 @@
 		<e:Rect width="520" fillColor="0xFFE3B2" ellipseWidth="40" scaleX="1" scaleY="1" verticalCenter="0" horizontalCenter="0" x="0" y="40" strokeWeight="0" strokeAlpha="0" height="420"/>
 		<e:Image source="egret-answer_json.cgdlbg@2x" scaleX="0.5" scaleY="0.5" horizontalCenter="0" x="80" y="-175" width="722" height="404"/>
 		<e:Label text="汪呜，回答错误" y="70" scaleX="1" scaleY="1" textColor="0x8b5a07" horizontalCenter="0" size="34" bold="true"/>
-		<e:Image source="egret-answer_json.dialogclose@2x" x="455" y="-80" scaleX="0.5" scaleY="0.5"/>
+		<e:Image id="close" source="egret-answer_json.dialogclose@2x" x="455" y="-80" scaleX="0.5" scaleY="0.5"/>
 		<e:Image source="egret-answer_json.btnl@2x" x="63.5" y="172" scaleX="0.5" scaleY="0.5"/>
 		<e:Label text="放弃复活" x="200" y="311" textColor="0x8b5a07" size="30"/>
 		<e:Label text="立即复活" bold="true" size="38" width="396" anchorOffsetY="0" height="90" textAlign="center" verticalAlign="middle" horizontalCenter="0" verticalCenter="11"/>

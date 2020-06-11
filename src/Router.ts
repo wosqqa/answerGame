@@ -4,6 +4,15 @@ class Router {
 
     private  _stage: egret.DisplayObjectContainer // 场景容器
 
+	constructor() {
+	}
+
+	static get instance() {
+		if (!this.router) {
+				this.router = new Router()
+		}
+		return this.router
+	}
 	/**
 	 * 当前路由信息
 	 */
@@ -49,18 +58,12 @@ class Router {
 	 */
 	private _beforeEach: Function = (to, from, next)=> {next()}
 
-	private constructor() {
-	}
-
-	public static get instance() {
-		if (!this.router) {
-				this.router = new Router()
-		}
-		return this.router
-	}
-
 	public static get params() {
 		return this.instance._params.params
+	}
+
+	public static get routeMap() {
+		return this.instance._routeMap
 	}
 
 	public static get meta() {
@@ -89,10 +92,21 @@ class Router {
 	 * 注册页面
 	 */
 	public static register(key: string, className: any, meta: any = null) {
+		// let classN = new className();
+		// console.log('Router构造函数'+key,this.instance._routeMap,classN)
 		this.instance._routeMap.put(key, {className: className, name: key, meta: meta})
 		return this
 	}
 
+	/**
+	 * 注册All页面
+	 */
+	public static registerAll() {
+    	// this.startChallengePage = new StartChallengePage();
+		// console.log('Router构造函数',this.startChallengePage)
+		// // this.instance._routeMap.put(key, {className: className, name: key, meta: meta})
+		return this
+	}
 	/**
 	 * 跳转路由之前做的事
 	 */

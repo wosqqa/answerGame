@@ -1,5 +1,11 @@
 declare class AnsweringPageSkin extends eui.Skin{
 }
+declare class CorrectButtonSkin extends eui.Skin{
+}
+declare class KeyButtonSkinSkin extends eui.Skin{
+}
+declare class WrongButtonSkin extends eui.Skin{
+}
 declare class PopupsPageSkin extends eui.Skin{
 }
 declare class StartChallengePageSkin extends eui.Skin{

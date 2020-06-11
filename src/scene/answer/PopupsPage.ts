@@ -13,6 +13,11 @@ class PopupsPage  extends BaseScene {
 	protected childrenCreated():void
 	{
 		super.childrenCreated();
+		let that = this;
+		console.log('有值', that['close']);
+		GameUtil.tap(that['close'], ()=> {
+			SceneManager.removeScene('popupsPage')
+		}, that)
 	}
 	
 }

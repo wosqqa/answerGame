@@ -15,5 +15,10 @@
         "path": "..\\resource\\eui_skins\\answer\\PopupsPage.ts",
         "class": "PopupsPage",
         "parentPath": ""
+    },
+    "172a23c31ec": {
+        "path": "..\\resource\\eui_skins\\answer\\item\\KeyButtonSkin.ts",
+        "class": "KeyButtonSkin",
+        "parentPath": ""
     }
 }

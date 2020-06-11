@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="WrongButtonSkin" width="625" height="105" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" >
+	<w:Config id="172a23c31ec" ></w:Config>
+	<e:Rect left="0" right="0" top="0" bottom="0" strokeWeight="1" ellipseHeight="125" ellipseWidth="125" fillColor="0xff6666" strokeColor="0xff6666"/>
+	<e:Label id="wrongTxt" text="答案一" x="0" y="0" size="36" bold="true" textColor="0xFFFFFF" width="625" height="105" verticalAlign="middle" textAlign="center"/>
+	<e:Image source="egret-answer_json.cuole@2x" x="525" y="26" scaleX="0.5" scaleY="0.5"/>
+</e:Skin>

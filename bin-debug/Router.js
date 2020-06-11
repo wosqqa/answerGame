@@ -35,6 +35,13 @@ var Router = (function () {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(Router, "routeMap", {
+        get: function () {
+            return this.instance._routeMap;
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(Router, "meta", {
         get: function () {
             return this.instance._params.meta;
@@ -64,7 +71,18 @@ var Router = (function () {
      */
     Router.register = function (key, className, meta) {
         if (meta === void 0) { meta = null; }
+        // let classN = new className();
+        // console.log('Router构造函数'+key,this.instance._routeMap,classN)
         this.instance._routeMap.put(key, { className: className, name: key, meta: meta });
+        return this;
+    };
+    /**
+     * 注册All页面
+     */
+    Router.registerAll = function () {
+        // this.startChallengePage = new StartChallengePage();
+        // console.log('Router构造函数',this.startChallengePage)
+        // // this.instance._routeMap.put(key, {className: className, name: key, meta: meta})
         return this;
     };
     /**

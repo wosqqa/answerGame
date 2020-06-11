@@ -134,6 +134,7 @@ var LoadingScene = (function (_super) {
         this.addChild(this.progressText);
     };
     LoadingScene.prototype.drawProgress = function (width, progress) {
+        var _this = this;
         this.progressBar.graphics.clear();
         this.progressBar.graphics.beginFill(0xFFFFFF, 1);
         this.progressBar.graphics.drawRoundRect(0, 0, width, this.barHeight, this.barHeight, this.barHeight);
@@ -144,9 +145,26 @@ var LoadingScene = (function (_super) {
             diff = diff < 1000 ? (1000 - diff) : 300;
             setTimeout(function () {
                 // 加载完成跳转到游戏页面
+                //先循环把注册的路由new实例以便在childrenCreated方法中可以直接id操作 绑定事件等 
+                SceneManager.instance.setScene(GameUtil.mainStage);
+                // for (let item in Router.routeMap.list) {
+                //     console.log('所有路由',item);
+                //     new Router.routeMap.list[item].className();
+                // }
+                _this.loadTheme();
                 Router.to({ name: 'game' });
             }, this, diff);
         }
+    };
+    LoadingScene.prototype.loadTheme = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            //加载皮肤主题配置文件,可以手动修改这个文件。替换默认皮肤。
+            var theme = new eui.Theme("resource/default.thm.json", _this.stage);
+            theme.addEventListener(eui.UIEvent.COMPLETE, function () {
+                resolve();
+            }, _this);
+        });
     };
     LoadingScene.prototype.drawBg = function () {
         var bg = new egret.Shape();

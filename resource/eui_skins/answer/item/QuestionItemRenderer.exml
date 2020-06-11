@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="QuestionItemRenderer" width="400" height="100" xmlns:e="http://ns.egret.com/eui">
+    <e:Group left="0" right="0" top="0" bottom="0">
+		<e:Label text="{data.question}" x="0" y="0"  textColor="0x601010"/>	
+        <e:Button label="{data.choice0}" x="62" y="175" skinName="KeyButtonSkinSkin" enabled="true" scaleX="1" scaleY="1"/>		
+	</e:Group>
+</e:Skin>
